@@ -19,10 +19,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    AppInit.init();
     // 异步UI更新
-    return Container(
-      color: Colors.blue,
+    return FutureBuilder(
+      future: AppInit.init(),
+      builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+
+        return Text("");
+      },
     );
   }
 }
